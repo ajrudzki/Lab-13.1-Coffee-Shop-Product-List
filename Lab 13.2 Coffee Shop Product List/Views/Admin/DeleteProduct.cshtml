@@ -1,0 +1,15 @@
+﻿@model CoffeeShopLabTable
+@{
+    ViewData["Title"] = "Delete";
+    long id = Model.id;
+}
+
+<h1 class="text-center">Admin Control Panel > Delete Product</h1><br />
+
+<h3>Are you sure you would like to remove this item from the menu? <b>@Model.Name</b>?</h3>
+
+<form action="/Admin/Delete" method="post">
+    <input type="submit" name="delete" value="Yes" />
+    <input type="submit" name="delete" value="No" />
+    <input type="hidden" name="productID" value="@Model.id" />
+</form>

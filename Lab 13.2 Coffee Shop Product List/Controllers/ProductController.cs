@@ -12,31 +12,21 @@ namespace Lab_13._2_Coffee_Shop_Product_List.Controllers
 {
     public class ProductController : Controller
     {
-        [HttpGet]
         public IActionResult Index()
         {
-            IDbConnection db = new SqlConnection("Server=HN78Q13\\SQLEXPRESS;Database=[Coffee Shop Lab];user id=testuser;password=abc123");
+            IDbConnection db = new SqlConnection("Server=HN78Q13\\SQLEXPRESS;Database=CoffeeShopLab;user id=testuser;password=abc123");
             db.Open();
 
-            List<CoffeeShopLabTable> cslt = db.Query<CoffeeShopLabTable>("select * from Name").AsList<CoffeeShopLabTable>();
+            List<CoffeeShopLabTable> cslt = db.Query<CoffeeShopLabTable>("select * from CoffeeShopLabTable").AsList<CoffeeShopLabTable>();
 
             db.Close();
 
             return View(cslt);
         }
-        [HttpPost]
-        public IActionResult Detail(int id, string Name, string Description, decimal Price, string Category )
+
+        public IActionResult Detail()
         {
-            CoffeeShopLabTable menu = new CoffeeShopLabTable()
-            {
-                id = id,
-                Name = Name,
-                Description = Description,
-                Price = Price,
-                Category = Category
-            };
-            return View(menu);
+            return View();
         }
     }
 }
-//id, name, 

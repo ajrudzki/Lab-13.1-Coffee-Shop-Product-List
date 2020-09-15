@@ -1,9 +1,17 @@
-﻿
+﻿@model List<CoffeeShopLabTable>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center">Drink Menu</h1>
+<h5 class="text-center">Click on a drink to view a description</h5><br />
 
-<form >
-</form>
+@foreach (CoffeeShopLabTable product in Model)
+    {
+        <table>
+            <tr>
+                <td>@product.Name - </td>
+                <td>$@product.Price</td><br />
+            </tr>
+        </table>
+    }

@@ -1,0 +1,33 @@
+﻿@model CoffeeShopLabTable
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Admin Control Panel > Edit Product</h1><br />
+
+<form action="/Admin/Edit" method="post">
+    <table>
+        <tr>
+            <td align="right"><label for="name">Product name:</label></td>
+            <td><input type="text" name="name" placeholder="@Model.Name" /></td>
+        </tr>
+        <tr>
+            <td align="right"><label for="category">Last name:</label></td>
+            <td><input type="text" name="category" placeholder="@Model.Category" /></td>
+        </tr>
+        <tr>
+            <td align="right"><label for="description">Last name:</label></td>
+            <td><input type="text" name="description" placeholder="@Model.Description" /></td>
+        </tr>
+        <tr>
+            <td align="right"><label for="price">Last name:</label></td>
+            <td><input type="text" name="price" placeholder="@Model.Price" /></td>
+        </tr>
+    </table>
+
+    <input type="hidden" name="productID" value="@Model.id" /><br />
+    <input type="reset" /><br />
+    
+    <input type="submit" value="Save" /><br />
+    <input type="submit" value="Cancel" /><br />
+</form>

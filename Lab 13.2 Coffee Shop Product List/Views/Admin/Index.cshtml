@@ -1,0 +1,30 @@
+﻿@model List<CoffeeShopLabTable>
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1 class="text-center">Admin Control Panel</h1>
+<br />
+
+
+@foreach (CoffeeShopLabTable product in Model)
+{
+    <table>
+        <tr>
+            <td>@product.Name</td>
+            <td>
+                <form action="/Admin/Edit" method="post">
+                    <input type="submit" name="edit" value="Edit" />
+                    <input type="hidden" name="productID" value="@product.id" />
+                </form>
+            </td>
+            <td>
+                <form action="/Admin/Delete" method="post">
+                    <input type="submit" name="delete" value="Delete" />
+                    <input type="hidden" name="productID" value="@product.id" />
+                </form>
+            </td>
+        </tr>
+    </table>
+}
+    
